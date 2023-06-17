@@ -4,7 +4,13 @@ products = []
 puts 'Product registration.'
 
 print "\nNumber of products to register (max #{PRODUCT_MAX}): "
-quantityOfProduct = gets.chomp.to_i
+quantityOfProduct = nil
+
+loop do
+  quantityOfProduct = gets.chomp.to_i
+  break if quantityOfProduct.between?(1, PRODUCT_MAX)
+  print "Invalid input. Please enter a number between 1 and #{PRODUCT_MAX}: "
+end
 
 quantityOfProduct.times do |product|
   code = nil
